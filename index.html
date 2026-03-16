@@ -169,53 +169,18 @@
       .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
     }
     @media (max-width: 768px) {
-      /* Nav */
-      nav { padding: 0 1.25rem; }
+      section { padding: 5rem 6vw; }
       .nav-links { display: none; }
-      .nav-links.open {
-        display: flex; flex-direction: column;
-        position: fixed; inset: 72px 0 0;
-        background: var(--white); padding: 2rem 1.5rem;
-        gap: 1.5rem; z-index: 99; overflow-y: auto;
-      }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; inset: 72px 0 0; background: var(--white); padding: 2rem 6vw; gap: 1.5rem; z-index: 99; overflow-y: auto; }
       .nav-links.open a { color: var(--muted) !important; font-size: 1rem; }
       .nav-toggle { display: flex; }
-
-      /* Sections */
-      section { padding: 4rem 1.25rem; }
-
-      /* Hero — prevent left bleed */
-      .hero-content { padding: 0 1.25rem 8vh; }
-      .hero-title { font-size: clamp(2.4rem, 10vw, 3.5rem); }
-      .hero-sub { font-size: 0.88rem; max-width: 100%; }
-      .hero-actions { flex-direction: column; align-items: flex-start; gap: 0.75rem; width: 100%; }
-      .btn-primary, .btn-ghost { width: 100%; text-align: center; padding: 0.9rem 1rem; }
-      .hero-scroll { display: none; }
-
-      /* Services */
-      .services-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
       .services-grid { grid-template-columns: 1fr; }
-
-      /* Why / Testimonials */
       .why-grid { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
-
-      /* CTA band */
-      .cta-band { flex-direction: column; text-align: center; padding: 3.5rem 1.25rem; }
-
-      /* Footer */
+      .cta-band { flex-direction: column; text-align: center; }
       .footer-top { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-      footer { padding: 4rem 1.25rem 2rem; }
-
-      /* Contact form */
-      #contact form div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-title { font-size: 2.2rem; }
-      .section-title { font-size: 2rem; }
-      .marquee-strip { padding: 0.75rem 0; }
+      .services-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
     }
   </style>
 </head>
@@ -492,7 +457,7 @@
       <div class="footer-contact-item"><strong>Address</strong>12 Chief Ikedichi Street, Lekki Phase 2, Ajah, Lagos, Nigeria.</div>
       <div class="footer-contact-item"><strong>WhatsApp & Calls</strong>+234 704 780 0062</div>
       <div class="footer-contact-item"><strong>Calls Only</strong>+234 201 227 2412</div>
-      <div class="footer-contact-item"><strong>Email</strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6bfb8b0b996beb3a4bfa2b7b1b3bbb3b2bfb5b7bab7b8b2a5a6b7f8b5b9bb">[email&#160;protected]</a></div>
+      <div class="footer-contact-item"><strong>Email</strong>info@heritagemedicalandspa.com</div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -505,10 +470,15 @@
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.116 1.522 5.847L0 24l6.305-1.508A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.371l-.36-.214-3.719.89.932-3.617-.235-.372A9.818 9.818 0 0 1 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
 </a>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
   navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
   const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
