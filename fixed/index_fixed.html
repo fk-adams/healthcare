@@ -7,13 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --white: #ffffff; --off-white: #f8f7f5; --light: #f0eeeb;
@@ -189,7 +182,102 @@ html, body {
       .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
       .services-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
     }
-  </style>
+  
+/* ========================= */
+/* ✅ ADDED FIXES (NAV + HERO) */
+/* ========================= */
+
+/* NAVBAR FIXES */
+@media (max-width: 768px) {
+  nav {
+    padding: 0 6vw;
+  }
+
+  .nav-logo {
+    font-size: 1.1rem;
+  }
+
+  .nav-links.open {
+    animation: fadeIn 0.3s ease;
+  }
+
+  .nav-links.open li {
+    width: 100%;
+  }
+
+  .nav-links.open a {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-cta {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}
+
+/* HERO FIXES */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 0 6vw 8vh;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
+    line-height: 1.1;
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .hero-actions a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-scroll {
+    right: 6vw;
+    bottom: 1.5rem;
+  }
+}
+
+/* SMALL PHONES */
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 0 5vw 6vh;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-actions {
+    gap: 0.7rem;
+  }
+}
+
+/* MENU ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
 </head>
 <body>
 
@@ -287,7 +375,7 @@ html, body {
   <div class="services-grid reveal">
 
     <a href="services.html#cosmetic" class="service-card">
-      <img src="https://media.istockphoto.com/id/1046276220/photo/silicone-implant-medical.jpg?s=612x612&w=0&k=20&c=_z-JJXL7y6HbqYvei9THwyv7hxgMX-qjwMY-TkXxfbg=" alt="Cosmetic Surgery" class="service-card-img">
+      <img src="https://images.unsplash.com/photo-1585842378054-ee2e52f94ba2?w=700&q=80&fit=crop" alt="Cosmetic Surgery" class="service-card-img">
       <div class="service-card-body">
         <div class="service-num">01</div>
         <h3 class="service-name">Cosmetic Surgery</h3>
@@ -307,7 +395,7 @@ html, body {
     </a>
 
     <a href="services.html#recovery" class="service-card">
-      <img src="recrecep2.png" alt="Recovery Suites" class="service-card-img">
+      <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=700&q=80&fit=crop" alt="Recovery Suites" class="service-card-img">
       <div class="service-card-body">
         <div class="service-num">03</div>
         <h3 class="service-name">Recovery Suites</h3>
@@ -317,7 +405,7 @@ html, body {
     </a>
 
     <a href="services.html#hbot" class="service-card">
-      <img src="https://media.istockphoto.com/id/2108826367/photo/medical-hyperbaric-single-pressure-chamber.jpg?s=612x612&w=0&k=20&c=qyZ_9aihi-T_5-Kj6Aw3haUva7mhFHx4zb6oD4nGcA0=" alt="Hyperbaric Oxygen Therapy" class="service-card-img">
+      <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80&fit=crop" alt="Hyperbaric Oxygen Therapy" class="service-card-img">
       <div class="service-card-body">
         <div class="service-num">04</div>
         <h3 class="service-name">Hyperbaric Oxygen Therapy</h3>
@@ -327,7 +415,7 @@ html, body {
     </a>
 
     <a href="services.html#dental" class="service-card">
-      <img src="https://media.istockphoto.com/id/2239939812/photo/dentist-performs-dental-cleaning-on-patient-under-bright-lamp-in-clinic-while-gloved-hands.jpg?s=612x612&w=0&k=20&c=a3D-BIIW4kQNLpLrSHS2ve3_o2XM9M8odn6FW6qDe7I=" alt="Dental Care" class="service-card-img">
+      <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=700&q=80&fit=crop" alt="Dental Care" class="service-card-img">
       <div class="service-card-body">
         <div class="service-num">05</div>
         <h3 class="service-name">Dental Care</h3>
@@ -337,7 +425,7 @@ html, body {
     </a>
 
     <a href="services.html" class="service-card" style="background:var(--accent)">
-      <img src="dental1.png" alt="Consultation" class="service-card-img" style="opacity:0.35">
+      <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&q=80&fit=crop" alt="Consultation" class="service-card-img" style="opacity:0.35">
       <div class="service-card-body" style="background:transparent">
         <div class="service-num" style="color:rgba(255,255,255,0.5)">+</div>
         <h3 class="service-name" style="color:var(--white)">Explore All<br>Services</h3>
