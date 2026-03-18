@@ -337,7 +337,7 @@
   <div class="video-grid reveal">
 
     <!-- Featured -->
-    <div class="video-card featured" data-video="S29x7VZQXOk&t=18s" data-title="Welcome to Heritage Medical & Spa — A Full Facility Tour" onclick="openLightbox(this)">
+    <div class="video-card featured" data-video="S29x7VZQXOk?si=QwJJtu8YBo7kogI1" data-title="Welcome to Heritage Medical & Spa — A Full Facility Tour" onclick="openLightbox(this)">
       <div class="video-thumb-wrap">
         <img src="/assets/heritage.webp" alt="Facility Tour" class="video-thumb">
         <div class="video-overlay">
@@ -630,8 +630,9 @@
   }
 
   function getYouTubeEmbedUrl(videoId) {
-    return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
-  }
+  const separator = videoId.includes('?') ? '&' : '?';
+  return `https://www.youtube.com/embed/${videoId}${separator}autoplay=1&rel=0&modestbranding=1`;
+}
 
   function openLightbox(card) {
     const videoId = card.dataset.video;
